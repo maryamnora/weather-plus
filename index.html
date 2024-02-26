@@ -13,31 +13,36 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <header>
-      <form>
-        <input
-          type="search"
-          placeholder="Enter the city..."
-          class="search-value"
-        />
-        <input type="button" value="search" class="button" />
-      </form>
-    </header>
     <main>
-      <h1>Paris</h1>
+      <header>
+        <form>
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            class="search-value"
+          />
+          <input type="button" value="search" class="button" />
+        </form>
+      </header>
+      <div class="info">
+        <h1 class="city">Paris</h1>
 
-      <div>Saturday 19:00, clear sky <br />Humidity: 85%, Wind: 2 km/h</div>
+        <p class="details">
+          Saturday 19:00, clear sky <br />
+          Humidity:<strong>85%</strong>, Wind: <strong>2 km/h</strong>
 
-      <div>
-        <div>🌦️</div>
-        <div>20</div>
-        <div>°C</div>
+          <div class="detail-temp">
+            <div class="icon">🌦️</div>
+            <div class="temp">20</div>
+            <div class="degree">°C</div>
+          </div>
+        </p>
       </div>
+      <footer>
+        This project was coded by
+        <a href="">Maryam</a>, is open-sourced on <a href="">GitHub</a> and
+        hosted on <a href="">Netlify</a>
+      </footer>
     </main>
-    <footer>
-      This project was coded by
-      <a href="">MaryamNora</a>, is open-sourced on <a href="">GitHub</a> and
-      hosted on <a href="">Netlify</a>
-    </footer>
   </body>
 </html>
