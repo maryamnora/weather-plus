@@ -1,9 +1,17 @@
 function tempp(response) {
-  let tempElement = response.data.temperature.current;
+  let tempRes = response.data.temperature.current;
+
   let tempUpdate = document.querySelector("#temp");
   let cityElement = document.querySelector("#city");
+  let conditionElement = document.querySelector("#condition");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let Roundwind = response.data.wind.speed;
+  windElement.innerHTML = Math.round(Roundwind);
+  humidityElement.innerHTML = response.data.temperature.humidity;
+  conditionElement.innerHTML = response.data.condition.description;
   cityElement.innerHTML = response.data.city;
-  tempUpdate.innerHTML = Math.round(tempElement);
+  tempUpdate.innerHTML = Math.round(tempRes);
 }
 
 function URL(city) {
@@ -20,3 +28,4 @@ function cityChange(event) {
 }
 let formElement = document.querySelector("#form");
 formElement.addEventListener("submit", cityChange);
+URL("Tehran");
