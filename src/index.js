@@ -5,6 +5,7 @@ function tempp(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let timeElement = document.querySelector("#time");
+  let iconElement = document.querySelector("#icon");
   let date = new Date(response.data.time * 1000);
   let tempRes = response.data.temperature.current;
   tempUpdate.innerHTML = Math.round(tempRes);
@@ -14,18 +15,20 @@ function tempp(response) {
   let Roundwind = response.data.wind.speed;
   windElement.innerHTML = Math.round(Roundwind);
   timeElement.innerHTML = time(date);
+
+  iconElement.innerHTML = ` <img src="${response.data.condition.icon_url}" class="icon" />`;
 }
 function time(date) {
   let hour = date.getHours();
   let mins = date.getMinutes();
   let Days = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday",
   ];
   let day = Days[date.getDay()];
   if (mins < 10) {
