@@ -49,6 +49,26 @@ function cityChange(event) {
 
   URL(inputElement.value);
 }
+function displayForecast() {
+  let dayy = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  let forecasthtml = "";
+  dayy.forEach(function (fday) {
+    forecasthtml =
+      forecasthtml +
+      `
+        <div class="forecast">
+          <div class="forecast-date">${fday}</div>
+          <div class="forecast-icon">☀️</div>
+          <div class="forecast-temp">
+            <span class="min">20°</span> <span class="max">25°</span>
+          </div>
+        </div>`;
+  });
+
+  let forecastElement = document.querySelector("#weather-forecast");
+  forecastElement.innerHTML = forecasthtml;
+}
 let formElement = document.querySelector("#form");
 formElement.addEventListener("submit", cityChange);
 URL("Tehran");
+displayForecast();

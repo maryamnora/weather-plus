@@ -75,10 +75,12 @@ header {
   font-size: 20px;
   margin-top: 15px;
 }
-.weather-forecast {
-  margin-top: 20px;
+#weather-forecast {
+  display: flex;
+  justify-content: space-between;
   text-align: center;
   color: 000;
+  margin: auto 35px;
 }
 .forecast-date {
   opacity: 0.5;
@@ -90,6 +92,7 @@ header {
 .min {
   opacity: 0.5;
 }
+
 footer {
   border-top: 1px solid #f9f7fe;
   padding: 20px 0 30px 0;
