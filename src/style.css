@@ -45,6 +45,7 @@ header {
   margin-left: 40px;
   color: rgb(0, 0, 0, 0.5);
   font-weight: bold;
+  margin-top: 60px;
 }
 .detail-temp {
   display: flex;
@@ -55,19 +56,39 @@ header {
 .details strong {
   color: #fa44ae;
   font-weight: bolder;
+  margin-top: 5px;
+}
+.city {
+  margin-left: 30px;
+  font-size: 70px;
+
+  margin-top: 60px;
 }
 
 .icon {
   font-size: 40px;
 }
-.city {
-  margin-left: 30px;
-  font-size: 70px;
-  margin-bottom: 10px;
+.temp {
+  margin-top: -27px;
 }
 .degree {
   font-size: 20px;
   margin-top: 15px;
+}
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: 000;
+}
+.forecast-date {
+  opacity: 0.5;
+  font-size: 16px;
+}
+.forecast-temp {
+  font-size: 13px;
+}
+.min {
+  opacity: 0.5;
 }
 footer {
   border-top: 1px solid #f9f7fe;
