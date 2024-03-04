@@ -89,6 +89,7 @@ header {
 .forecast-temp {
   font-size: 13px;
 }
+
 .min {
   opacity: 0.5;
 }
@@ -97,7 +98,8 @@ footer {
   border-top: 1px solid #f9f7fe;
   padding: 20px 0 30px 0;
   color: rgb(0, 0, 0, 0.45);
-  margin-left: 40px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 a {
   color: #0ae3eb;

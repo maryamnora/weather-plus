@@ -17,6 +17,7 @@ function tempp(response) {
   timeElement.innerHTML = time(date);
 
   iconElement.innerHTML = ` <img src="${response.data.condition.icon_url}" class="icon" />`;
+  apiForecast(response.data.city);
 }
 function time(date) {
   let hour = date.getHours();
@@ -46,23 +47,40 @@ function URL(city) {
 function cityChange(event) {
   event.preventDefault();
   let inputElement = document.querySelector("#search-input");
-
   URL(inputElement.value);
 }
-function displayForecast() {
-  let dayy = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+function apiForecast(city) {
+  let apikey = "6015b50d3adc47t42c1668fbad7435o2";
+  let apiurl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apikey}&units=metric`;
+  axios.get(apiurl).then(displayForecast);
+}
+function dayForecast(timestep) {
+  let date = new Date(timestep * 1000);
+  let dayys = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let dayyy = dayys[date.getDay()];
+  return dayyy;
+}
+
+function displayForecast(response) {
+  let dayy = response.data.daily;
   let forecasthtml = "";
-  dayy.forEach(function (fday) {
-    forecasthtml =
-      forecasthtml +
-      `
-        <div class="forecast">
-          <div class="forecast-date">${fday}</div>
-          <div class="forecast-icon">☀️</div>
+  dayy.forEach(function (fday, index) {
+    if (index < 5) {
+      forecasthtml =
+        forecasthtml +
+        `<div class="forecast">
+          <div class="forecast-date">${dayForecast(fday.time)}</div>
+               <div class="forecast-icon">
+      <img src="${fday.condition.icon_url}" width="40px"></div>
           <div class="forecast-temp">
-            <span class="min">20°</span> <span class="max">25°</span>
+            <span class="max">${Math.round(
+              fday.temperature.maximum
+            )}°  </span> <span class="min">${Math.round(
+          fday.temperature.minimum
+        )}°</span>
           </div>
         </div>`;
+    }
   });
 
   let forecastElement = document.querySelector("#weather-forecast");
@@ -71,4 +89,3 @@ function displayForecast() {
 let formElement = document.querySelector("#form");
 formElement.addEventListener("submit", cityChange);
 URL("Tehran");
-displayForecast();
